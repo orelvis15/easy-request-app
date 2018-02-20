@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Easy Request</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="obligatory_field">Obligatory field</string>
+    <string name="passwordRepeat">Repeate password</string>
+    <string name="password_not_equals">The passwords are different</string>
+</resources>

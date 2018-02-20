@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="outlet.com.easyrequest.Views.RegisterView">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        >
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="75dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tb_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/user"
+            android:padding="30px"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tb_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="30px"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tb_confirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/passwordRepeat"
+            android:inputType="textPassword"
+            android:padding="30px"
+            />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"/>
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.design.widget.CoordinatorLayout>
