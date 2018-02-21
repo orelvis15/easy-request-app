@@ -18,13 +18,18 @@ public class RegisterPresenterImpl implements Register.Presenter,Register.onRegi
     }
 
     @Override
-    public void validator(String user, String password, String confirmPassword) {
-        interactor.validator(user,password,confirmPassword,this);
+    public void validator(String user,String email, String password, String confirmPassword) {
+        interactor.validator(user,email,password,confirmPassword,this);
     }
 
     @Override
     public void userError() {
         view.setErrorUser();
+    }
+
+    @Override
+    public void emailError() {
+        view.setErrorEmail();
     }
 
     @Override

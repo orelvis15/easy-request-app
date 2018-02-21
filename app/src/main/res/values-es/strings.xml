@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Easy Request</string>
     <string name="user">Usuario</string>
+    <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="login">Entrar</string>
     <string name="register">Registrarse</string>

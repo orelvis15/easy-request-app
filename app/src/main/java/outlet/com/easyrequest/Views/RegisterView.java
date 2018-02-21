@@ -18,6 +18,7 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
     Toolbar tb;
 
     TextView user;
+    TextView email;
     TextView password;
     TextView confirmpassword;
 
@@ -43,9 +44,10 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
             }
         });
 
-        user = (TextView) findViewById(R.id.tb_user);
-        password = (TextView) findViewById(R.id.tb_password);
-        confirmpassword = (TextView) findViewById(R.id.tb_confirmpassword);
+        user = (TextView) findViewById(R.id.et_user);
+        email = (TextView) findViewById(R.id.et_email);
+        password = (TextView) findViewById(R.id.et_password);
+        confirmpassword = (TextView) findViewById(R.id.et_confirmpassword);
         register = (Button) findViewById(R.id.btn_register);
 
         register.setOnClickListener(this);
@@ -61,6 +63,11 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
     @Override
     public void setErrorUser() {
         user.setError(getString(R.string.obligatory_field));
+    }
+
+    @Override
+    public void setErrorEmail() {
+        email.setError(getString(R.string.obligatory_field));
     }
 
     @Override
@@ -80,7 +87,7 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
 
 
     public void validator(){
-        presenter.validator(user.getText().toString(),password.getText().toString(),confirmpassword.getText().toString());
+        presenter.validator(user.getText().toString(),email.getText().toString(),password.getText().toString(),confirmpassword.getText().toString());
     }
 
     @Override

@@ -22,7 +22,7 @@
         android:layout_marginTop="75dp">
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/tb_user"
+            android:id="@+id/et_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/user"
@@ -30,7 +30,16 @@
             />
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/tb_password"
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:padding="30px"
+            android:inputType="textEmailAddress"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -39,7 +48,7 @@
             />
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/tb_confirmpassword"
+            android:id="@+id/et_confirmpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/passwordRepeat"

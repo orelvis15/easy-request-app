@@ -9,6 +9,7 @@ public interface Register {
     public interface View{
 
         void setErrorUser();
+        void setErrorEmail();
         void setErrorPassword();
         void setErrorConfirmPassword();
         void setErrorNotEquals();
@@ -18,20 +19,21 @@ public interface Register {
     public interface onRegisterFinishListener{
 
         void userError();
-        void passwordError();
+        void emailError();
         void confirmPasswordError();
+        void passwordError();
         void setErrorNotEquals();
 
     }
 
     public interface Presenter{
 
-        void validator(String user,String password,String confirmPassword);
+        void validator(String user,String email,String password,String confirmPassword);
 
     }
     public interface Interactor{
 
-        void validator(String user,String password,String confirmPassword, Register.onRegisterFinishListener listener);
+        void validator(String user,String email,String password,String confirmPassword, Register.onRegisterFinishListener listener);
 
     }
 
