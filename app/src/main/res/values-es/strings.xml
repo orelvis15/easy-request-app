@@ -8,4 +8,7 @@
     <string name="obligatory_field">Campo obligatorio</string>
     <string name="passwordRepeat">Repetir contraseña</string>
     <string name="password_not_equals">Las contraseñas son diferentes</string>
+    <string name="networkError">Error de red</string>
+    <string name="requestError">Error de solicitud</string>
+    <string name="pleaseConfirmUser">Por favor confirmar el usuario desde el correo</string>
 </resources>

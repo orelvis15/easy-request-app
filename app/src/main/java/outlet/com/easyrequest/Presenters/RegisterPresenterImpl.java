@@ -1,5 +1,7 @@
 package outlet.com.easyrequest.Presenters;
 
+import android.content.SharedPreferences;
+
 import outlet.com.easyrequest.Interactors.RegisterInteractorImpl;
 import outlet.com.easyrequest.Interfaces.Register;
 
@@ -18,8 +20,8 @@ public class RegisterPresenterImpl implements Register.Presenter,Register.onRegi
     }
 
     @Override
-    public void validator(String user,String email, String password, String confirmPassword) {
-        interactor.validator(user,email,password,confirmPassword,this);
+    public void validator(String user,String email, String password, String confirmPassword, SharedPreferences prefer) {
+        interactor.validator(user,email,password,confirmPassword,this,prefer);
     }
 
     @Override
@@ -45,5 +47,35 @@ public class RegisterPresenterImpl implements Register.Presenter,Register.onRegi
     @Override
     public void setErrorNotEquals() {
         view.setErrorNotEquals();
+    }
+
+    @Override
+    public void errorNetwork() {
+        view.errorNetwork();
+    }
+
+    @Override
+    public void errorRequest() {
+        view.errorRequest();
+    }
+
+    @Override
+    public void onBack() {
+        view.onBack();
+    }
+
+    @Override
+    public void showMessage(int sms) {
+        view.showMessage(sms);
+    }
+
+    @Override
+    public void inactiveActivity() {
+        view.inactiveActivity();
+    }
+
+    @Override
+    public void activeActivity() {
+        view.activeActivity();
     }
 }

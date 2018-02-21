@@ -1,10 +1,13 @@
 package outlet.com.easyrequest.Views;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,8 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
     Button register;
 
     Register.Presenter presenter;
+
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +58,40 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
         register.setOnClickListener(this);
 
         presenter = new RegisterPresenterImpl(this);
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+
     }
 
+    @Override
     public void onBack(){
         this.finish();
+    }
+
+    @Override
+    public void showMessage(int sms) {
+        Toast.makeText(this,getString(sms),Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void inactiveActivity() {
+        user.setEnabled(false);
+        email.setEnabled(false);
+        password.setEnabled(false);
+        confirmpassword.setEnabled(false);
+        register.setEnabled(false);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    @Override
+    public void activeActivity() {
+        user.setEnabled(true);
+        email.setEnabled(true);
+        password.setEnabled(true);
+        confirmpassword.setEnabled(true);
+        register.setEnabled(true);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
 
@@ -81,13 +116,22 @@ public class RegisterView extends AppCompatActivity implements Register.View, Vi
     }
 
     @Override
+    public void errorNetwork() {
+        Toast.makeText(this,getString(R.string.networkError),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void errorRequest() {
+        Toast.makeText(this,getString(R.string.requestError),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void setErrorNotEquals() {
       Toast.makeText(this,getString(R.string.password_not_equals),Toast.LENGTH_SHORT).show();
     }
 
-
     public void validator(){
-        presenter.validator(user.getText().toString(),email.getText().toString(),password.getText().toString(),confirmpassword.getText().toString());
+        presenter.validator(user.getText().toString(),email.getText().toString(),password.getText().toString(),confirmpassword.getText().toString(),sharedPref);
     }
 
     @Override

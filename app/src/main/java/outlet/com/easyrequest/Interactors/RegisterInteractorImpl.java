@@ -1,5 +1,7 @@
 package outlet.com.easyrequest.Interactors;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -7,6 +9,8 @@ import outlet.com.easyrequest.Data.Model.RegisterPost;
 import outlet.com.easyrequest.Data.Remote.APIService;
 import outlet.com.easyrequest.Data.Remote.ApiUtils;
 import outlet.com.easyrequest.Interfaces.Register;
+import outlet.com.easyrequest.R;
+import outlet.com.easyrequest.Views.RegisterView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,9 +22,11 @@ import retrofit2.Response;
 public class RegisterInteractorImpl implements Register.Interactor {
 
     private APIService mApiServices;
+    private Context context;
+    private SharedPreferences pref;
 
     @Override
-    public void validator(String user,String email, String password, String confirmPassword, Register.onRegisterFinishListener listener) {
+    public void validator(String user,String email, String password, String confirmPassword, Register.onRegisterFinishListener listener, SharedPreferences prefer) {
         if (user.equals("") || password.equals("") || confirmPassword.equals("") || !password.equals(confirmPassword)){
             if (user.equals("")){
                 listener.userError();
@@ -32,31 +38,42 @@ public class RegisterInteractorImpl implements Register.Interactor {
                 listener.setErrorNotEquals();
             }
         }else {
-
+            listener.inactiveActivity();
             mApiServices = ApiUtils.getAPIService();
-            sendPost(user,email,password);
+
+            sendPost(user,email,password,listener,prefer);
+
+
 
 
         }
     }
 
-    public void sendPost(String name, String email, String password) {
+    public void sendPost(String name, String email, String password, final Register.onRegisterFinishListener listener, final SharedPreferences prefer) {
         mApiServices.savePost(name, email, password).enqueue(new Callback<RegisterPost>() {
             @Override
             public void onResponse(Call<RegisterPost> call, Response<RegisterPost> response) {
 
                 if(response.isSuccessful()) {
-                    //showResponse(response.body().toString());
-                    Log.d("okok", response.code()+"");
+                    //solicitud entregada
+                    SharedPreferences.Editor edit = prefer.edit();
+                    edit.putString("token",response.body().getToken());
+                    edit.commit();
+                    listener.onBack();
+                    listener.showMessage(R.string.pleaseConfirmUser);
 
                 }else{
-                    Log.d("prueba mal", response.code()+"");
+                    //error de solicitud
+                    listener.errorRequest();
+                    listener.activeActivity();
                 }
             }
 
             @Override
             public void onFailure(Call<RegisterPost> call, Throwable t) {
-                Log.d("Error", "Fallo al enviar el post");
+                //error de red
+                listener.errorNetwork();
+                listener.activeActivity();
             }
         });
     }
