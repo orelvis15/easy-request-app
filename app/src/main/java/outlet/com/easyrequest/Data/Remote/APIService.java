@@ -16,5 +16,6 @@ public interface APIService {
     @FormUrlEncoded
     Call<RegisterPost> savePost(@Field("name") String name,
                                 @Field("email") String email,
-                                @Field("password") String password);
+                                @Field("password") String password,
+                                @Field("role") String role);
 }

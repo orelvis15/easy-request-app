@@ -11,12 +11,18 @@ public class RegisterPost {
     @SerializedName("name")
     @Expose
     private String name;
+
     @SerializedName("email")
     @Expose
     private String email;
+
     @SerializedName("password")
     @Expose
     private String password;
+
+    @SerializedName("role")
+    @Expose
+    private String role;
 
     @SerializedName("token")
     @Expose
@@ -49,5 +55,9 @@ public class RegisterPost {
     public String getToken() { return token; }
 
     public void setToken(String token) { this.token = token; }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
 
 }

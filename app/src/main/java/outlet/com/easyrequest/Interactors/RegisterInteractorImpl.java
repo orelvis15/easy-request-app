@@ -50,7 +50,7 @@ public class RegisterInteractorImpl implements Register.Interactor {
     }
 
     public void sendPost(String name, String email, String password, final Register.onRegisterFinishListener listener, final SharedPreferences prefer) {
-        mApiServices.savePost(name, email, password).enqueue(new Callback<RegisterPost>() {
+        mApiServices.savePost(name, email, password,"client").enqueue(new Callback<RegisterPost>() {
             @Override
             public void onResponse(Call<RegisterPost> call, Response<RegisterPost> response) {
 

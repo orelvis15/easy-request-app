@@ -4,11 +4,28 @@
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="login">Entrar</string>
-    <string name="register">Registrarse</string>
+    <string name="register">Crear</string>
+    <string name="register_text">¿No tienes cuenta aún? Crea una</string>
     <string name="obligatory_field">Campo obligatorio</string>
     <string name="passwordRepeat">Repetir contraseña</string>
     <string name="password_not_equals">Las contraseñas son diferentes</string>
     <string name="networkError">Error de red</string>
     <string name="requestError">Error de solicitud</string>
     <string name="pleaseConfirmUser">Por favor confirmar el usuario desde el correo</string>
+    <string name="title_provider_dashboard">Dashboard</string>
+    <string name="navigation_drawer_open">Abrir barra de navegación</string>
+    <string name="navigation_drawer_close">Cerrar barra de navegación</string>
+    <string name="action_settings">Configuración</string>
+
+    <string name="product">Productos</string>
+    <string name="client">Clientes</string>
+    <string name="order">Pedidos</string>
+    <string name="messages">Mensajes</string>
+    <string name="licenses">Licencias</string>
+    <string name="directions">Direcciones</string>
+    <string name="profile">Perfil</string>
+    <string name="info">Información</string>
+    <string name="setting">Configuración</string>
+
+
 </resources>

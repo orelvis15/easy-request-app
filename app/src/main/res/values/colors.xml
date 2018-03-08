@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#ffffff</color>
+
+    <color name="g_blue">#4285F4</color>
+    <color name="g_red">#EA4335</color>
+    <color name="g_yellow">#FBBC05</color>
+    <color name="g_green">#34A853</color>
+
+    <color name="text_button">#FEA482</color>
+    <color name="text_color">#EBA6AD</color>
 </resources>
